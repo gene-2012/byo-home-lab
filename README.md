@@ -12,9 +12,9 @@
 
 ## 📚 Project Structure
 
-- `docs/`：正式发布的章节草稿与插图说明
-- `resources/`：各实验场景中使用的资源
-- `images/`：流程图、拓扑图等视觉辅助资料
+- `documents/`：每一部分的文稿，命名为 `Px[Dy]_discription.md`，其中 x 和 y 表示第几部分和第几章，例如 P2D2 表示第二部分第二章，如果没有 D 表示这部分只有一章，discription 表示本部分的概述，采用小驼峰规范。
+- `resources/`：各实验场景中使用的资源，命名为 `Px[Dy]_resourceName.xxx`，表示第 x 部分的第 y 章，resourceName 表示资源名称，采用小驼峰规范。
+- `images/`：流程图、拓扑图等视觉辅助资料，命名为 `Px[Dy]_id_imageName.xxx`，表示是第 x 部分的第 y 章，第 id 张图，imageName 表示图片名称，采用小驼峰规范。
 
 ---
 
