@@ -10,7 +10,7 @@
 
 OpenWrt 项目是一个面向嵌入式设备的 Linux 操作系统。与传统路由器的“固件烧录完就只能认命”不同，OpenWrt 提供了一个完全**可写**的文件系统和完善的软件包管理功能，简直就是“路由器中的 Arch Linux”。
 
-你可以把 OpenWrt 想象成一台可以自由扩展插件的变形金刚，不仅能当路由器，还能跑 DNS、广告屏蔽、VPN、Docker……甚至还能跑 Minecraft（虽然我不推荐 😅）。这种灵活性，让它成为了许多极客和网络爱好者的最爱。
+你可以把 OpenWrt 想象成一台可以自由扩展插件的变形金刚，不仅能当路由器，还能跑 DNS、广告屏蔽、VPN、Docker……甚至还能跑 Minecraft（虽然我不推荐~~并且好像也没多少人做过~~ 😅）。这种灵活性，让它成为了许多极客和网络爱好者的最爱。
 
 它本身是一个社区驱动的开源项目，支持各种路由器和 SBC（单板机），有时候你会在极客论坛、矿渣群、黑群晖教程里频繁看到它的名字。
 
@@ -87,7 +87,16 @@ istoreos-arm64-rpi4-*.img.gz
 gzip -d istoreos-arm64-rpi4-*.img.gz
 ```
 
-
+> [!tip]
+> 如果你使用的是路由器设备，你可以在 [Kwrt](https://openwrt.ai) 上获取镜像。
+> 
+> Kwrt 的镜像包内置 iStoreOS 的商店等部分功能，并且可以为自己的路由器量身定制一套固件。
+>
+> 不过你需要提前刷入一个 OpenWrt 官方镜像，然后在系统升级里进行刷入。
+>
+> 并且固件默认 IP 是 10.0.0.1，而非 iStoreOS 的 192.168.100.1，不过后期可以更改。同时该镜像还不会包含 iStoreOS 的图标以及搜索功能（不过并不影响）。
+> 
+> （如果这里头还是没有的话就先用 OpenWrt 官方镜像凑合用吧，也不太会影响正常使用~~虽然不如 iStoreOS 方便~~）
 
 #### 💾 Step 2：写入 TF 卡
 
@@ -125,7 +134,7 @@ sudo dd if=istoreos-arm64-rpi4.img of=/dev/sdX bs=4M status=progress conv=fsync
 
 #### A. 虚拟机安装（适合测试、开发）
 
-如果你搭建了诸如 PVE、eSXI 这样的虚拟化平台，那么太棒了，iStoreOS 在这些平台上的操作相当见但。iStoreOS 提供了适用于 Legacy BIOS 启动的 `.img` 镜像，可以直接作为硬盘使用。
+如果你搭建了诸如 PVE、eSXI 这样的虚拟化平台，那么太棒了，iStoreOS 在这些平台上的操作相当简单。iStoreOS 提供了适用于 Legacy BIOS 启动的 `.img` 镜像，可以直接作为硬盘使用。
 
 ##### 步骤：
 
@@ -256,6 +265,8 @@ sudo dd if=istoreos-arm64-rpi4.img of=/dev/sdX bs=4M status=progress conv=fsync
 - 第一步：创建一个 Zerotier 账户，并新建一个频道，选择合适的 IP 段，记住网络 ID，这个后面要用。
   ![Zerotier](/image/P2D2_2_Zerotier.png)
 - 第二步：在 OpenWRT 中，安装 Zerotier 插件，并加入网络，打开允许客户端 NAT。
+  > 在没有 iStoreOS 的 OpenWrt 镜像上，其对应软件包为 luci-app-zerotier。
+  
   ![Install Zerotier Extendtion](/image/P2D2_3_InstallZerotierExtendtion.png)
   ![Join Network](/image/P2D2_4_JoinNetwork.png)
 - 第三步：在“网络-接口”中添加一个新接口，命名为 Zerotier，类型为**静态地址**，在设备栏选择以 `zt` 开头的网卡。将 IPV4 地址设为你在 Zerotier 管理页看到的虚拟地址；在“网络-防火墙-自定义规则”中输入下列 iptable 策略如下：
