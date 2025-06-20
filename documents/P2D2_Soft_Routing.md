@@ -104,7 +104,8 @@ sudo dd if=istoreos-arm64-rpi4.img of=/dev/sdX bs=4M status=progress conv=fsync
 
 
 
-> ⚠️ 注意替换 `/dev/sdX` 为你实际插入的 TF 卡路径，否则容易酿成“数据灭顶之灾”。
+> [!warning]
+> 注意替换 `/dev/sdX` 为你实际插入的 TF 卡路径，否则容易酿成“数据灭顶之灾”。
 
 #### Step 3：首次启动
 
@@ -208,7 +209,8 @@ sudo dd if=istoreos-arm64-rpi4.img of=/dev/sdX bs=4M status=progress conv=fsync
    * 默认用户名：`root`
    * 默认密码：`password`
 
-> 💡 如果只有一个网口，默认的网口是 LAN；如果大于一个网口，默认 eth0 是 WAN 口，其它都是 LAN。
+> [!tip]
+> 如果只有一个网口，默认的网口是 LAN；如果大于一个网口，默认 eth0 是 WAN 口，其它都是 LAN。
 
 更多详细的安装步骤和图示，您可以参考以下博客文章：
 
