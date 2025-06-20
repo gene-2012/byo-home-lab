@@ -1,5 +1,6 @@
 # Build Your Own Home-LAB Part 2 Div 2. Soft Routing
 
+> [!note]
 > 在上一 Div 中，我们初步了解了计算机网络结构，并引入了软路由的概念，本章中，我们将围绕 OpenWRT 的衍生版本——iStoreOS 搭建一个切实可用的软路由系统。
 
 ---
